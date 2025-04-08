@@ -55,7 +55,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <div class="logo">
-              <img src="static/images/logo.png", width="20%", height="20%">
+              <img src="static/images/logo.png" , width="20%" , height="20%">
             </div>
             <br>
 
@@ -90,11 +90,10 @@
     <div class="container is-max-desktop">
       <div class="hero-body">
 
-      <div class="columns is-centered has-text-centered">
-        <img src="./static/images/teaser.jpg" alt="Algorithm description of
-        LucidDreamer" width="90%" loading="lazy">
-      </div>
-       <h2 class="subtitle has-text-centered">
+        <div class="columns is-centered has-text-centered">
+          <img src="./static/images/teaser.jpg" alt="Quick look of MagicDrive3D" width="90%" loading="lazy">
+        </div>
+        <h2 class="subtitle has-text-centered">
           <span class="dnerf">MagicDrive3D</span> generates highly realistic
           3D street scenes with diverse contorls.
         </h2>
@@ -111,28 +110,23 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              While controllable generative models for images and videos have
-              achieved remarkable success, high-quality models for 3D scenes,
-              particularly in unbounded scenarios like autonomous driving,
-              remain underdeveloped due to high data acquisition costs. In this
-              paper, we introduce <span class="dnerf">MagicDrive3D</span>, a novel pipeline for controllable
-              3D street scene generation that supports multi-condition control,
-              including BEV maps, 3D objects, and text descriptions. Unlike
-              previous methods that reconstruct before training the generative
-              models, <span class="dnerf">MagicDrive3D</span> first trains a video generation model and then
-              reconstructs from the generated data. This innovative approach
-              enables easily controllable generation and static scene
-              acquisition, resulting in high-quality scene reconstruction. To
-              address the minor errors in generated content, we propose
-              deformable Gaussian splatting with monocular depth initialization
-              and appearance modeling to manage exposure discrepancies across
-              viewpoints. Validated on the nuScenes dataset, <span class="dnerf">MagicDrive3D</span>
-              generates diverse, high-quality 3D driving scenes that support
-              any-view rendering and enhance downstream tasks like BEV
-              segmentation. Our results demonstrate the framework's superior
-              performance, showcasing its transformative potential for
-              autonomous driving simulation and beyond.
-
+              While controllable generative models for images and videos have achieved remarkable success, high-quality
+              and controllable generation for 3D scenes, particularly in unbounded scenarios like autonomous driving,
+              remains underdeveloped due to high data acquisition requirements. In this paper, we introduce <span
+                class="dnerf">MagicDrive3D</span>, a novel framework for controllable 3D street scene generation that
+              integrates video-based view synthesis with 3D representation (3DGS) generation. This approach supports
+              multi-condition control, including road maps, 3D objects, and text descriptions.
+              Unlike previous methods that acquire 3D representation before training generative models, <span
+                class="dnerf">MagicDrive3D</span> begins by training a multi-view video generation model to synthesize
+              diverse street views. This innovative approach leverages routinely collected autonomous driving data
+              (e.g., nuScenes), significantly reducing data acquisition challenges and enhancing the richness of 3D
+              scene generation.
+              In the 3DGS generation step, we introduce Fault-Tolerant Gaussian Splatting to address minor errors in the
+              generated content. We also introduce monocular depth for better initialization prior, and appearance
+              modeling to handle exposure discrepancies across different viewpoints.
+              Experiments demonstrate that <span class="dnerf">MagicDrive3D</span> generates diverse, high-quality 3D
+              driving scenes that support any-view rendering and enhance downstream tasks like BEV segmentation,
+              showcasing its potential for autonomous driving simulation and beyond.
             </p>
           </div>
         </div>
@@ -143,245 +137,164 @@
   </section>
 
   <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
+    <div class="hero-body">
+      <div class="container">
 
-      <div id="results-carousel1" class="carousel results-carousel">
-      
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/3dgs/069b2210186c49c383b08dfded66ff35_20240516-063212_ori_gs.mp4"
-                  type="video/mp4">
-              </video>
-            </div>
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/ours/069b2210186c49c383b08dfded66ff35_20240420-002244_ours1.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-      
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/3dgs/21b99febc5c14f7385e787fe81e96670_20240516-002511_ori_gs.mp4"
-                  type="video/mp4">
-              </video>
-            </div>
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/ours/21b99febc5c14f7385e787fe81e96670_20240519-075050_ours2.mp4" type="video/mp4">
-              </video>
+        <div id="results-carousel1" class="carousel results-carousel">
+
+          <div class="item">
+            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/bbox/069b2210186c49c383b08dfded66ff35_bbox.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/ours/069b2210186c49c383b08dfded66ff35_20240420-002244_ours1.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
             </div>
           </div>
+
+          <div class="item">
+            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/bbox/21b99febc5c14f7385e787fe81e96670_bbox.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/ours/21b99febc5c14f7385e787fe81e96670_20240519-075050_ours2.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/bbox/20d02a3110fb47348e175a61ad157875_bbox.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/ours/20d02a3110fb47348e175a61ad157875_20240419-043159_ours1.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/bbox/28b65b60537d4f70be13fae042ecace9_bbox.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/ours/28b65b60537d4f70be13fae042ecace9_20240518-155707_ours2.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/bbox/2de4836c1a1e4d1a8c2d73a3af31fd47_bbox.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/ours/2de4836c1a1e4d1a8c2d73a3af31fd47_20240419-121118_ours1.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/bbox/3fd8074cf3444290a8cf4ddd3de0ffc4_bbox.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
+                  <source src="./static/video/ours/3fd8074cf3444290a8cf4ddd3de0ffc4_20240418-213611_ours1.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/3dgs/20d02a3110fb47348e175a61ad157875_20240516-064655_ori_gs.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/ours/20d02a3110fb47348e175a61ad157875_20240419-043159_ours1.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/3dgs/28b65b60537d4f70be13fae042ecace9_20240515-102921_ori_gs.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/ours/28b65b60537d4f70be13fae042ecace9_20240518-155707_ours2.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/3dgs/2de4836c1a1e4d1a8c2d73a3af31fd47_20240516-055904_ori_gs.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/ours/2de4836c1a1e4d1a8c2d73a3af31fd47_20240419-121118_ours1.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/3dgs/3fd8074cf3444290a8cf4ddd3de0ffc4_20240516-051914_ori_gs.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video">
-              <video poster="" id="fantasy_back" autoplay muted loop playsinline height="100%">
-                <source src="./static/video/ours/3fd8074cf3444290a8cf4ddd3de0ffc4_20240418-213611_ours1.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
+        <p class="content has-text-centered is-size-5">
+          <b>left:</b> bbox condition (one of our inputs). <b>right:</b> 3D scene generated by <span
+            class="dnerf">MagicDrive3D</span>.
+          <br><i>If the videos on the left and right are out of sync, please refresh the page.</i>
+        </p>
 
       </div>
-
-      <p class="content has-text-centered is-size-5">
-          <b>left:</b> 3DGS. <b>right:</b> <span class="dnerf">MagicDrive3D</span>.
-      </p>
-
     </div>
-  </div>
   </section>
   <script>
-      bulmaCarousel.attach('#results-carousel1', {
-          slidesToScroll: 1,
-          slidesToShow: 3
+    bulmaCarousel.attach('#results-carousel1', {
+      slidesToScroll: 1,
+      slidesToShow: 3
+    });
+    $(function () {
+      $(".twentytwenty-container").twentytwenty({
+        before_label: 'Bbox', // Set a custom before label
+        after_label: 'Ours', // Set a custom after label
+        default_offset_pct: 0.3,
+        click_to_move: false
       });
-      $(function(){
-          $(".twentytwenty-container").twentytwenty({
-              before_label: '3DGS', // Set a custom before label
-              after_label: 'Ours', // Set a custom after label
-              default_offset_pct: 0.3,
-              click_to_move: false
-          });
+    });
+    $(function () {
+      $(".twentytwenty-container2").twentytwenty({
+        before_label: 'Bbox/3DGS', // Set a custom before label
+        after_label: 'Ours', // Set a custom after label
+        default_offset_pct: 0.45,
+        click_to_move: false
       });
+    });
   </script>
 
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
 
-      <h2 class="title is-3">Method</h2>
-      <div class="columns is-centered has-text-centered">
-        <img src="./static/images/overview.jpg" alt="Algorithm description of
+        <h2 class="title is-3">Method</h2>
+        <div class="columns is-centered has-text-centered">
+          <img src="./static/images/overview.jpg" alt="Algorithm description of
         MagicDrive3D" width="75%">
-      </div>
-      <p class="content has-text-left is-size-5">
-      For controllable street scene generation, <span class="dnerf">MagicDrive3D</span> decomposes the task
-      into two steps: ① conditional multi-view video generation, which tackles
-      the control signals and provides detailed prior of the scene; and ② scene
-      reconstruction with deformable Gaussian splatting, which guarantees view
-      consistency for any-view rendering.
-      </p>
+        </div>
+        <p class="content has-text-left is-size-5">
+          For controllable street 3D scene generation, <span class="dnerf">MagicDrive3D</span> decomposes the task into
+          two steps:
+          ① conditional multi-view video generation, which tackles the control
+          signals and generates consistent view priors to the novel scene; and ②
+          Gaussian Splatting generation with our Enhanced GS pipeline, which
+          supports various viewpoint rendering (e.g., panorama).
+        </p>
 
       </div>
     </div>
   </section>
 
   <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Bullet Time!</h2>
-        <p class="content has-text-left is-size-5">
-          Video generation proposed by <span class="dnerf">MagicDrive3D</span>
-          make it possible for static scene generation, facilitating scene
-          reconstruction. It is like creating novel bullet-time scenes from
-          driving dataset.
-        </p>
-  
-        <div class="columns is-centered has-text-centered is-vcentered">
-          <div class="column is-5">
-            <video poster="" id="fantasy_back" controls muted loop playsinline width="100%">
-              <source src="./static/video/bullet/151_27f42a55215f4223a01afa79fcda72e6_gen0_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-  
-          <div class="column is-4">
-              <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-                <div class="video">
-                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
-                    <source src="./static/video/bullet/27f42a55215f4223a01afa79fcda72e6_20240516-135419_ori_gs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="video">
-                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
-                    <source src="./static/video/bullet/27f42a55215f4223a01afa79fcda72e6_20240519-224145_ours2.mp4" type="video/mp4">
-                  </video>
-              </div>
-  
-            </div>
-          </div>
-        </div>
-  
-  
-        <div class="columns is-centered has-text-centered is-vcentered">
-          <div class="column is-5">
-            <video poster="" id="fantasy_back" controls muted loop playsinline width="100%">
-              <source src="./static/video/bullet/236_1de656bbbe0243918385b86079c4ef8f_gen0_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-  
-          <div class="column is-4">
-              <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-                <div class="video">
-                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
-                    <source src="./static/video/bullet/1de656bbbe0243918385b86079c4ef8f_20240515-235834_ori_gs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="video">
-                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
-                    <source src="./static/video/bullet/1de656bbbe0243918385b86079c4ef8f_20240519-080148_ours2.mp4" type="video/mp4">
-                  </video>
-              </div>
-  
-            </div>
-          </div>
-        </div>
-  
-        <div class="columns is-centered has-text-centered is-vcentered">
-          <div class="column is-5">
-            <video poster="" id="fantasy_back" controls muted loop playsinline
-            width="100%">
-              <source src="./static/video/bullet/1_fdd2da37faa44428ba9ce4a760f53276_gen0_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-  
-          <div class="column is-4">
-              <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.55">
-                <div class="video">
-                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
-                    <source src="./static/video/bullet/fdd2da37faa44428ba9ce4a760f53276_ori_gs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="video">
-                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
-                    <source src="./static/video/bullet/fdd2da37faa44428ba9ce4a760f53276_night.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
-  
-            </div>
-          </div>
-  
-        </div>
-  
-        <p class="content has-text-centered is-size-5">
-          <b>left:</b> multi-view video from <span class="dnerf">MagicDrive3D</span>. <b>right:</b> final generated scene
-          from <span class="dnerf">MagicDrive3D</span> (compared with 3DGS).
-        </p>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3">Controllability</h2>
@@ -394,7 +307,7 @@
           <div class="column is-8">
             <img src="./static/images/editing1.png" alt="Editing 1" width="98%">
           </div>
-  
+
           <div class="column is-3">
             <video poster="" id="fantasy_back" controls muted loop playsinline width="95%">
               <source src="./static/video/20d02a3110fb47348e175a61ad157875_cam.mp4" type="video/mp4">
@@ -404,7 +317,7 @@
             </video>
           </div>
         </div>
-  
+
         <div class="columns is-centered has-text-centered is-gapless is-vcentered">
           <div class="column is-8">
             <img src="./static/images/editing2.png" alt="Editing 2" width="98%">
@@ -415,7 +328,7 @@
             </video>
           </div>
         </div>
-  
+
         <div class="columns is-centered has-text-centered is-gapless is-vcentered">
           <div class="column is-8">
             <img src="./static/images/editing3.png" alt="Editing 3" width="98%">
@@ -426,28 +339,146 @@
             </video>
           </div>
         </div>
-  
-  
+
+
       </div>
   </section>
 
-
-  <section class="hero is-small is-light">
+  <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
 
-      <h2 class="title is-3">Data Engine</h2>
-      <p class="content has-text-left is-size-5">
-        Controllable street scene generation ability makes <span class="dnerf">MagicDrive3D</span> a
-        powerful data engine. We show how generated scenes can help to improve
-        the viewpoint robustness on CVT.
+        <h2 class="title is-3">Data Engine</h2>
+        <p class="content has-text-left is-size-5">
+          Controllable street scene generation ability makes <span class="dnerf">MagicDrive3D</span> a
+          powerful data engine. We show how generated scenes can help to improve
+          the viewpoint robustness on CVT.
+        </p>
+        <div class="columns is-centered has-text-centered">
+          <img src="./static/images/downstream.jpg" alt="Downstream performance" width="60%">
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small is-light" id="ablation-section">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Ablation Study (Bullet Time!)</h2>
+        <p class="content has-text-left is-size-5">
+          Video generation proposed by <span class="dnerf">MagicDrive3D</span>
+          make it possible for static scene generation (left: although the data
+          is collected with scene dynamic, we can generate static scene videos),
+          facilitating scene 3DGS generation (right: we propose improved FTGS
+          pipeline which performs much better than the original 3DGS).
+          It is like creating novel bullet-time scenes from
+          driving dataset.
+        </p>
+
+        <div class="columns is-centered has-text-centered is-vcentered">
+          <div class="column is-5">
+          </div>
+          <div class="column is-4">
+            <div class="buttons is-centered">
+              <button id="bboxButton" class="button" onclick="switchToBbox()">Show Box
+                Condition</button>
+              <button id="oriGSButton" class="button is-primary" onclick="switchToOriGS()">Show Ori. GS for
+                Ablation</button>
+            </div>
+            <p>Video will start from the beginning on switching.</p>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered is-vcentered">
+          <div class="column is-5">
+            <video poster="" id="fantasy_back" controls muted loop playsinline width="100%">
+              <source src="./static/video/bullet/151_27f42a55215f4223a01afa79fcda72e6_gen0_crop.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-4">
+            <div class="container">
+              <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.55">
+                <div class="video">
+                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
+                    <source src="./static/video/bullet/27f42a55215f4223a01afa79fcda72e6_20240516-135419_ori_gs.mp4"
+                      type="video/mp4">
+                  </video>
+                </div>
+                <div class="video">
+                  <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
+                    <source src="./static/video/bullet/27f42a55215f4223a01afa79fcda72e6_20240519-224145_ours2.mp4"
+                      type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="columns is-centered has-text-centered is-vcentered">
+          <div class="column is-5">
+            <video poster="" id="fantasy_back" controls muted loop playsinline width="100%">
+              <source src="./static/video/bullet/236_1de656bbbe0243918385b86079c4ef8f_gen0_crop.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-4">
+            <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
+                  <source src="./static/video/bullet/1de656bbbe0243918385b86079c4ef8f_20240515-235834_ori_gs.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
+                  <source src="./static/video/bullet/1de656bbbe0243918385b86079c4ef8f_20240519-080148_ours2.mp4"
+                    type="video/mp4">
+                </video>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered is-vcentered">
+          <div class="column is-5">
+            <video poster="" id="fantasy_back" controls muted loop playsinline width="100%">
+              <source src="./static/video/bullet/1_fdd2da37faa44428ba9ce4a760f53276_gen0_crop.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-4">
+            <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.55">
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
+                  <source src="./static/video/bullet/fdd2da37faa44428ba9ce4a760f53276_ori_gs.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video">
+                <video poster="" id="fantasy_back" autoplay muted loop playsinline width="100%">
+                  <source src="./static/video/bullet/fdd2da37faa44428ba9ce4a760f53276_night.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p class="content has-text-centered is-size-5">
+        <b>left/above:</b> multi-view video for static scene generated by the 1st step of
+        <span class="dnerf">MagicDrive3D</span>. <br><b>right/below:</b> final generated
+        3D scene from <span class="dnerf">MagicDrive3D</span> (click button to
+        change between Bbox and 3DGS ablation).
       </p>
-      <div class="columns is-centered has-text-centered">
-        <img src="./static/images/downstream.jpg" alt="Downstream performance" width="60%">
-      </div>
-
-
-      </div>
+    </div>
+    </div>
     </div>
   </section>
 
@@ -472,6 +503,7 @@
   <!--=================Functions==========================-->
   <script src="./static/js/progressive-image.js" async></script>
   <script src="./static/js/juxtapose.js"></script>
+  <script src="./static/js/switch_baseline.js"></script>
 
 </body>
 
